@@ -1,25 +1,32 @@
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid/non-secure";
 import { useNavigate } from "react-router-dom";
+import { asyncLoginrUser } from "../features/users/userAction";
+import { useDispatch } from "react-redux";
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+
   const loginHandler = (user) => {
     user.id = nanoid();
-    console.log(user);
+    dispatch(asyncLoginrUser(user));
     reset();
     navigate(-1);
   };
+
   const navigateHandler = () => {
     navigate("/register");
   };
+
   return (
-   <div className="h-screen flex flex-col items-center">
+    <div className="h-screen flex flex-col items-center">
       <div className="w-40 h-30">
         <img
           className="w-full object-contain"
@@ -36,8 +43,6 @@ const Login = () => {
           onSubmit={handleSubmit(loginHandler)}
           className="flex flex-col items-center text-2xl gap-4 cursor-pointer tracking-tight"
         >
-       
-
           <div className="flex flex-col gap-1">
             <input
               {...register("email", { required: "please enter a email" })}
@@ -68,7 +73,7 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 mt-2">
           <h4>Don't have an account</h4>
           <button
             onClick={navigateHandler}

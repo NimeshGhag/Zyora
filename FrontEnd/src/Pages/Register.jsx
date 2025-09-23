@@ -1,24 +1,32 @@
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid/non-secure";
 import { useNavigate } from "react-router-dom";
+import { asyncRegisterUser } from "./../features/users/userAction";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+
   const registerHandler = (user) => {
     user.id = nanoid();
-    console.log(user);
+    user.isAdmin = false;
+    dispatch(asyncRegisterUser(user));
     reset();
     navigate(-1);
   };
+
   const navigateHandler = () => {
     navigate("/logIn");
   };
+
   return (
     <div className="h-screen flex flex-col items-center">
       <div className="w-40 h-30">
@@ -80,7 +88,7 @@ const Register = () => {
           </button>
         </form>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 mt-2">
           <h4>Already have an account</h4>
           <button
             onClick={navigateHandler}
