@@ -43,14 +43,14 @@ const Register = () => {
 
         <form
           onSubmit={handleSubmit(registerHandler)}
-          className="flex flex-col items-center text-2xl gap-4 cursor-pointer tracking-tight"
+          className="flex flex-col items-center text-2xl gap-4 p-5 cursor-pointer tracking-tight relative shadow-xl rounded-2xl backdrop-blur-xs  " 
         >
           <div className="flex flex-col gap-1">
             <input
               {...register("userName", { required: "please enter a username" })}
-              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg capitalize"
+              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg capitalize placeholder:text-sm"
               type="text"
-              placeholder="User Name"
+              placeholder="Name"
             />
 
             <small className="text-red-500 text-xs font-thin">
@@ -61,7 +61,7 @@ const Register = () => {
           <div className="flex flex-col gap-1">
             <input
               {...register("email", { required: "please enter a email" })}
-              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg"
+              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg placeholder:text-sm"
               type="email"
               placeholder="Email"
             />
@@ -74,16 +74,16 @@ const Register = () => {
           <div className="flex flex-col gap-1">
             <input
               {...register("password", { required: "please enter a password" })}
-              className="border-1  border-neutral-400 outline-0 p-3 rounded-lg"
+              className="border-1  border-neutral-400 outline-0 p-3 rounded-lg placeholder:text-sm "
               type="password"
-              placeholder="******"
+              placeholder="Password"
             />
             <small className="text-red-500 text-xs font-thin">
               {errors?.password?.message}
             </small>
           </div>
 
-          <button className="bg-black text-white cursor-pointer w-full p-2 rounded-2xl">
+          <button className="bg-black text-white cursor-pointer w-full p-2 rounded-4xl text-lg hover:text-amber-300">
             Sign Up
           </button>
         </form>
@@ -92,7 +92,7 @@ const Register = () => {
           <h4>Already have an account</h4>
           <button
             onClick={navigateHandler}
-            className="text-emerald-700 cursor-pointer"
+            className="text-emerald-700 cursor-pointer hover:text-shadow-2xs"
           >
             sign in
           </button>

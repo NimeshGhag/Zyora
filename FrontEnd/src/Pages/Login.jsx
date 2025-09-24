@@ -26,7 +26,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col items-center">
+    <div className="w-screenh-screen flex flex-col items-center">
       <div className="w-40 h-30">
         <img
           className="w-full object-contain"
@@ -41,12 +41,12 @@ const Login = () => {
 
         <form
           onSubmit={handleSubmit(loginHandler)}
-          className="flex flex-col items-center text-2xl gap-4 cursor-pointer tracking-tight"
+          className="w-full flex flex-col items-center text-2xl gap-4  p-5 cursor-pointer tracking-tigh shadow-xl rounded-2xl backdrop-blur-xst"
         >
           <div className="flex flex-col gap-1">
             <input
               {...register("email", { required: "please enter a email" })}
-              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg"
+              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg placeholder:text-sm"
               type="email"
               placeholder="Email"
             />
@@ -59,16 +59,16 @@ const Login = () => {
           <div className="flex flex-col gap-1">
             <input
               {...register("password", { required: "please enter a password" })}
-              className="border-1  border-neutral-400 outline-0 p-3 rounded-lg"
+              className="border-1  border-neutral-400 outline-0 p-3 rounded-lg placeholder:text-sm"
               type="password"
-              placeholder="******"
+              placeholder="Password"
             />
             <small className="text-red-500 text-xs font-thin">
               {errors?.password?.message}
             </small>
           </div>
 
-          <button className="bg-black text-white cursor-pointer w-full p-2 rounded-2xl">
+          <button className="bg-black text-white cursor-pointer w-full p-2 rounded-4xl text-lg hover:text-amber-300">
             Sign In
           </button>
         </form>
@@ -77,7 +77,7 @@ const Login = () => {
           <h4>Don't have an account</h4>
           <button
             onClick={navigateHandler}
-            className="text-emerald-700 cursor-pointer"
+            className="text-emerald-700 cursor-pointer hover:text-shadow-2xs"
           >
             sign Up
           </button>
