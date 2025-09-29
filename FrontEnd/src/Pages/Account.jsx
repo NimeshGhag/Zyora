@@ -1,15 +1,16 @@
 import React from "react";
 import Login from "./Login";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Account = () => {
   const user = useSelector((state) => state.user && state.user.user);
+  const navigate = useNavigate()
 
-  const buttonis = () => {
-    <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
-      <i className="ri-heart-2-line text-emerald-700"></i> Wishlist
-    </button>;
-  };
+  const productHandler =()=>{
+    navigate("/create-product")
+  }
+
   return (
     <>
       {user ? (
@@ -52,7 +53,7 @@ const Account = () => {
           <div className="px-5 flex flex-col gap-2 mt-5">
             {user?.isAdmin && (
               <>
-                <button className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer  hover:text-amber-300 hover:transition duration-300 ease-in-out">
+                <button onClick={productHandler} className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer  hover:text-amber-300 hover:transition duration-300 ease-in-out">
                   Create Product
                 </button>
               </>

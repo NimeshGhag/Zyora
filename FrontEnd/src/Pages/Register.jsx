@@ -8,6 +8,7 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+
   const {
     register,
     handleSubmit,
@@ -43,7 +44,7 @@ const Register = () => {
 
         <form
           onSubmit={handleSubmit(registerHandler)}
-          className="flex flex-col items-center text-2xl gap-4 p-5 cursor-pointer tracking-tight relative shadow-xl rounded-2xl backdrop-blur-xs  " 
+          className="flex flex-col items-center text-2xl gap-4 p-5 cursor-pointer tracking-tight relative shadow-xl rounded-2xl backdrop-blur-xs  "
         >
           <div className="flex flex-col gap-1">
             <input
