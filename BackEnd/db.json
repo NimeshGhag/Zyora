@@ -25,7 +25,8 @@
   "products": [
     {
       "id": "1",
-      "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+      "title": "Foldsack No. 1 Backpack, ",
       "price": 109.95,
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "Backpacks"
@@ -45,6 +46,14 @@
       "price": "899",
       "category": "Bag",
       "description": "this is anothet test"
+    },
+    {
+      "id": "ky6OLeNjp9zX9aZyaHiJ0",
+      "image": "https://m.media-amazon.com/images/I/41pB1s57RNL._UF1000,1000_QL80_.jpg",
+      "title": " Jean Paul Gaultier",
+      "price": "5600",
+      "category": "Perfume",
+      "description": "Ultra Mle, the rogue sailor who will have you lost at sea! This EDT Intense is an arm wrestle between power and greed."
     }
   ],
   "cart": []
