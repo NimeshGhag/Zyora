@@ -29,6 +29,22 @@
       "price": 109.95,
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "Backpacks"
+    },
+    {
+      "id": "AI9eCSq24JTZtunoymts3",
+      "image": "https://assets.manufactum.de/p/211/211075/211075_01.jpg/travel-bag-canvas-green-beige.jpg",
+      "title": "Bag",
+      "price": "599",
+      "category": "fashion",
+      "description": "this is a test product"
+    },
+    {
+      "id": "ylPLARdhQnuSlTikTDGjS",
+      "image": "https://assets.manufactum.de/p/211/211075/211075_01.jpg/travel-bag-canvas-green-beige.jpg",
+      "title": "bag_test",
+      "price": "899",
+      "category": "Bag",
+      "description": "this is anothet test"
     }
   ],
   "cart": []

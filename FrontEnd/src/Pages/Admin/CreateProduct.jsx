@@ -2,6 +2,7 @@ import { nanoid } from "nanoid/non-secure";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { asyncCreateProduct } from "../../features/products/productAction";
 
 const CreateProduct = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const CreateProduct = () => {
 
   const createhandler = (product) => {
     product.id = nanoid();
+    dispatch(asyncCreateProduct(product))
     reset();
     navigate("/products");
   };

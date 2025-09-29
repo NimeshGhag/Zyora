@@ -1,1 +1,19 @@
 import axios from "../../Api/axiosconfig";
+
+import { loadProduct } from "./productslice";
+
+export const asyncLoadProduct = () => async (dispatch, getState) => {
+  try {
+    const { data } = await axios.get("/products");
+    dispatch(loadProduct(data));
+    console.log("product loded");
+  } catch (error) {}
+};
+
+export const asyncCreateProduct = (product) => async (dispatch, getState) => {
+  try {
+    const { data } = await axios.post("/products", product);
+    dispatch(asyncLoadProduct(data));
+    console.log("product created");
+  } catch (error) {}
+};
