@@ -1,5 +1,5 @@
 import axios from "../../Api/axiosconfig";
-import { loaduser } from "./userSlice";
+import { loaduser, logOutUser } from "./userSlice";
 
 //Register User
 export const asyncRegisterUser = (user) => async (dispatch, getState) => {
@@ -30,9 +30,12 @@ export const asyncLoginrUser = (user) => async (dispatch, getState) => {
 };
 
 //LogOut User
-export const asyncLogOutUser = (user) => async (dispatch, getState) => {
+export const asyncLogOutUser = () => async (dispatch, getState) => {
   try {
     localStorage.removeItem("token");
+    dispatch(logOutUser());
+    console.log('user log out');
+    
   } catch (error) {
     console.log("error", error);
   }

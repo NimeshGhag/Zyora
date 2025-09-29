@@ -1,14 +1,21 @@
 import React from "react";
 import Login from "./Login";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { asyncLogOutUser } from "../features/users/userAction";
 
 const Account = () => {
   const user = useSelector((state) => state.user && state.user.user);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const productHandler =()=>{
     navigate("/create-product")
+  }
+
+  const logOutHandler = (user)=>{
+    dispatch(asyncLogOutUser());
+    navigate("/logIn")
   }
 
   return (
@@ -59,7 +66,7 @@ const Account = () => {
               </>
             )}
 
-            <button className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out">
+            <button onClick={logOutHandler} className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out">
               <i className="ri-logout-box-r-line"></i> Sign out
             </button>
           </div>
