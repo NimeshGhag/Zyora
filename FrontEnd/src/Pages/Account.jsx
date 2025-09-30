@@ -3,6 +3,7 @@ import Login from "./Login";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { asyncLogOutUser } from "../features/users/userAction";
+import Nav from './../Components/Nav';
 
 const Account = () => {
   const user = useSelector((state) => state.user && state.user.user);
@@ -76,6 +77,8 @@ const Account = () => {
           <Login />
         </div>
       )}
+
+      <Nav/>
     </>
   );
 };

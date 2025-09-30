@@ -33,6 +33,7 @@ const CreateProduct = () => {
 
         <input
           {...register("title")}
+           maxLength={15}
           className="w-full text-xl  p-2 border-1 border-gray-300 outline-0 rounded-lg"
           type="text"
           placeholder="Product Title"

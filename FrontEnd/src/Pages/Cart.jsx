@@ -1,8 +1,11 @@
 import React from 'react'
+import Nav from './../Components/Nav';
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <div>
+      <Nav/>
+    </div>
   )
 }
 
