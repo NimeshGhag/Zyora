@@ -18,7 +18,7 @@ const Login = () => {
     user.id = nanoid();
     dispatch(asyncLoginrUser(user));
     reset();
-    navigate(-1);
+    navigate("/");
   };
 
   const navigateHandler = () => {
