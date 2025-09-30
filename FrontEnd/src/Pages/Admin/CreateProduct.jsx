@@ -7,7 +7,11 @@ import { asyncCreateProduct } from "../../features/products/productAction";
 const CreateProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm(
+    defaultValues = {
+      image : "product?.image"
+    }
+  );
 
   const createhandler = (product) => {
     product.id = nanoid();

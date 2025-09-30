@@ -17,3 +17,11 @@ export const asyncCreateProduct = (product) => async (dispatch, getState) => {
     console.log("product created");
   } catch (error) {}
 };
+
+export const asyncUpdateProduct = (id , product) => async (dispatch, getState) => {
+  try {
+     await axios.patch(`/products/${id}`,product);
+    dispatch(asyncLoadProduct());
+    console.log("product updated");
+  } catch (error) {}
+};
