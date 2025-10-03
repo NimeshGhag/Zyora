@@ -8,6 +8,7 @@ import Account from "../Pages/Account";
 import CreateProduct from "../Pages/Admin/CreateProduct";
 import ProductDetails from './../Pages/ProductDetails';
 import UpdateProduct from "../Pages/Admin/UpdateProduct";
+import UpdateUser from "../Pages/Users/UpdateUser";
 
 const MainRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const MainRoutes = () => {
       <Route path="/register" element ={<Register/>}/>
       <Route path="/cart" element ={<Cart/>}/>
       <Route path="/account" element ={<Account/>}/>
+      <Route path="/update-user/:id" element ={<UpdateUser/>}/>
       <Route path="/create-product" element ={<CreateProduct/>}/>
 
     </Routes>

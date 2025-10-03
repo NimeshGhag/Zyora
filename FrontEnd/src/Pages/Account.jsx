@@ -1,23 +1,23 @@
 import React from "react";
 import Login from "./Login";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { asyncLogOutUser } from "../features/users/userAction";
-import Nav from './../Components/Nav';
+import Nav from "./../Components/Nav";
 
 const Account = () => {
   const user = useSelector((state) => state.user && state.user.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const productHandler =()=>{
-    navigate("/create-product")
-  }
+  const productHandler = () => {
+    navigate("/create-product");
+  };
 
-  const logOutHandler = (user)=>{
+  const logOutHandler = (user) => {
     dispatch(asyncLogOutUser());
-    navigate("/logIn")
-  }
+    navigate("/logIn");
+  };
 
   return (
     <>
@@ -35,7 +35,7 @@ const Account = () => {
             </div>
           </div>
 
-          <div className="flex flex-col  items-center px-5 mx-2 bg-gray-100  rounded-xl  ">
+          <div className="flex flex-col  items-center px-5 mx-2 bg-gray-100  rounded-xl tracking-tight ">
             <div className="w-full py-2 flex gap-1 justify-around ">
               <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
                 <i className="ri-box-3-line text-emerald-700"></i> Orders
@@ -53,21 +53,31 @@ const Account = () => {
                 <i className="ri-customer-service-2-fill text-emerald-700"></i>{" "}
                 Help
               </button>
+            </div>
 
-            
+            <div className="w-full py-2 gap-2 flex flex-col">
+              <h1 className="opacity-75 text-sm mb-1 border-b-1 border-gray-500 pb-2">Account Settings</h1>
+              <Link to={`/update-user/${user?.id}`} className=" text-md  border-b-1 border-gray-500 pb-2">Update Profile</Link>
+              <Link className=" text-md  border-b-1 border-gray-500 pb-2">Delete Account</Link>
             </div>
           </div>
 
           <div className="px-5 flex flex-col gap-2 mt-5">
             {user?.isAdmin && (
               <>
-                <button onClick={productHandler} className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer  hover:text-amber-300 hover:transition duration-300 ease-in-out">
+                <button
+                  onClick={productHandler}
+                  className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer  hover:text-amber-300 hover:transition duration-300 ease-in-out"
+                >
                   Create Product
                 </button>
               </>
             )}
 
-            <button onClick={logOutHandler} className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out">
+            <button
+              onClick={logOutHandler}
+              className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out"
+            >
               <i className="ri-logout-box-r-line"></i> Sign out
             </button>
           </div>
@@ -78,7 +88,7 @@ const Account = () => {
         </div>
       )}
 
-      <Nav/>
+      <Nav />
     </>
   );
 };

@@ -3,15 +3,12 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { asyncCreateProduct } from "../../features/products/productAction";
+import Nav from './../../Components/Nav';
 
 const CreateProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset } = useForm(
-    defaultValues = {
-      image : "product?.image"
-    }
-  );
+  const { register, handleSubmit, reset } = useForm();
 
   const createhandler = (product) => {
     product.id = nanoid();
@@ -64,6 +61,7 @@ const CreateProduct = () => {
           Create Product
         </button>
       </form>
+      <Nav/>
     </div>
   );
 };

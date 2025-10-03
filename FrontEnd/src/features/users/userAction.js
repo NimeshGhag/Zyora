@@ -60,3 +60,20 @@ export const asyncCurrentUser = () => async (dispatch, getState) => {
     console.log("error", error);
   }
 };
+
+//Update User
+// Accept id and user object so the PATCH URL contains the id.
+export const asyncUpdateUser = (id, user) => async (dispatch, getState) => {
+  try {
+    if (!id) {
+      console.error("asyncUpdateUser called without id");
+      return;
+    }
+    const { data } = await axios.patch(`/users/${id}`, user);
+    // refresh current user (will re-read from localStorage or payload)
+    dispatch(asyncCurrentUser());
+    console.log("user updated", data);
+  } catch (error) {
+    console.error("asyncUpdateUser error", error);
+  }
+};

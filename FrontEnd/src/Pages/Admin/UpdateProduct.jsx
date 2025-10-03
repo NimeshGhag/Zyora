@@ -22,13 +22,13 @@ const UpdateProduct = () => {
     },
   });
 
-  const updateHnadler = (formData) => {
+  const updateHnadler = (formData,id) => {
     // Use the existing product id (from the matched product or the route param)
     const updatedId = product?.id ?? id;
     const updatedProduct = { ...formData, id: updatedId };
     dispatch(asyncUpdateProduct(updatedId, updatedProduct));
     reset();
-    navigate("/products");
+    navigate(-1);
   };
 
   return (
@@ -70,7 +70,7 @@ const UpdateProduct = () => {
           placeholder="Product Description Here..."
         ></textarea>
         <button className="text-white rounded-xl  text-xl px-5 py-3 bg-black cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out">
-          Create Product
+          Update Product
         </button>
       </form>
     </div>

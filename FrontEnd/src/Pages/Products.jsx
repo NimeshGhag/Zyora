@@ -26,7 +26,7 @@ const Products = () => {
 
         <div className="mt-auto w-full px-2 mb-2">
           <h3 className="text-sm font-medium line-clamp-2">{product.title}</h3>
-          <span className="text-lg font-semibold">${product.price}</span>
+          <span className="text-lg font-semibold">₹ {product.price}</span>
         </div>
 
         <Link

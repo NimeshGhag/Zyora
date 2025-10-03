@@ -4,7 +4,7 @@
       "id": "Oi97R3n4DkofbLfcUMfyb",
       "userName": "admin.master",
       "email": "admin@master.com",
-      "password": "12345",
+      "password": "1234",
       "isAdmin": true
     },
     {
@@ -46,6 +46,14 @@
       "price": "5600",
       "category": "Perfume",
       "description": "Ultra Mle, the rogue sailor who will have you lost at sea! This EDT Intense is an arm wrestle between power and greed."
+    },
+    {
+      "id": "bzFAU_kT7WTi0ZxmR7t72",
+      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mba13-skyblue-select-202503?wid=892&hei=820&fmt=jpeg&qlt=90&.v=M2RyY09CWXlTQUp1KzEveHR6VXNxcTQ1bzN1SitYTU83Mm9wbk1xa1lWN2h4SGtCQ2R3aStVaDRhL2VUV1NjdkJkRlpCNVhYU3AwTldRQldlSnpRa0lIV0Fmdk9rUlVsZ3hnNXZ3K3lEVlk",
+      "title": " MacBook Air",
+      "price": "85000",
+      "category": "Electronics",
+      "description": "SPEED OF LIGHTNESS — MacBook Air with the M4 chip lets you blaze through work and play. With Apple Intelligence,* up to 18 hours of battery life,* and an incredibly portable design, you can take on anything, anywhere."
     }
   ],
   "cart": []
