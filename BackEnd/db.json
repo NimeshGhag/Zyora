@@ -8,16 +8,16 @@
       "isAdmin": true
     },
     {
-      "id": "UQMyXaVfDgaJwldnDSJ5X",
-      "userName": "Test.master",
+      "id": "ieO0NCZgHt2oqGbqpTM4W",
+      "userName": "test_test",
       "email": "test@test.com",
       "password": "12345",
       "isAdmin": false
     },
     {
-      "id": "ieO0NCZgHt2oqGbqpTM4W",
-      "userName": "test_test",
-      "email": "test@test.com",
+      "id": "dfi_WG0e2ZJwj37lw8E20",
+      "userName": "nimesh_test",
+      "email": "nimesh@test.com",
       "password": "1234",
       "isAdmin": false
     }

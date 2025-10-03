@@ -58,7 +58,7 @@ const Login = () => {
 
           <div className="flex flex-col gap-1">
             <input
-              {...register("password", { required: "please enter a password" })}
+              {...register("password", { required: "invalid password" })}
               className="border-1  border-neutral-400 outline-0 p-3 rounded-lg placeholder:text-sm"
               type="password"
               placeholder="Password"

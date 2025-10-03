@@ -10,7 +10,6 @@ const UpdateProduct = () => {
   const products = useSelector((state) => state.product?.products ?? []);
 
   const product = products?.find((pro) => String(pro.id) === String(id));
-  console.log(product);
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
@@ -22,7 +21,7 @@ const UpdateProduct = () => {
     },
   });
 
-  const updateHnadler = (formData,id) => {
+  const updateHnadler = (formData, id) => {
     // Use the existing product id (from the matched product or the route param)
     const updatedId = product?.id ?? id;
     const updatedProduct = { ...formData, id: updatedId };

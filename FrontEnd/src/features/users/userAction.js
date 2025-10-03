@@ -5,7 +5,6 @@ import { loaduser, logOutUser } from "./userSlice";
 export const asyncRegisterUser = (user) => async (dispatch, getState) => {
   try {
     const { data } = await axios.post("/users", user);
-    console.log(data);
   } catch (error) {
     console.log("error", error);
   }
@@ -22,7 +21,6 @@ export const asyncLoginrUser = (user) => async (dispatch, getState) => {
       localStorage.setItem("token", JSON.stringify(data[0]));
       dispatch(loaduser(data[0]));
     } else {
-      console.log("Invalid credentials");
     }
   } catch (error) {
     console.log("error", error);
@@ -34,8 +32,6 @@ export const asyncLogOutUser = () => async (dispatch, getState) => {
   try {
     localStorage.removeItem("token");
     dispatch(logOutUser());
-    console.log('user log out');
-    
   } catch (error) {
     console.log("error", error);
   }
@@ -46,15 +42,13 @@ export const asyncCurrentUser = () => async (dispatch, getState) => {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
-      console.log("No token found");
       return;
     }
-    
+
     const user = JSON.parse(token);
     if (user && user.email) {
       dispatch(loaduser(user));
     } else {
-      console.log("Invalid user data in token");
     }
   } catch (error) {
     console.log("error", error);
@@ -66,14 +60,21 @@ export const asyncCurrentUser = () => async (dispatch, getState) => {
 export const asyncUpdateUser = (id, user) => async (dispatch, getState) => {
   try {
     if (!id) {
-      console.error("asyncUpdateUser called without id");
       return;
     }
     const { data } = await axios.patch(`/users/${id}`, user);
     // refresh current user (will re-read from localStorage or payload)
     dispatch(asyncCurrentUser());
-    console.log("user updated", data);
   } catch (error) {
     console.error("asyncUpdateUser error", error);
   }
+};
+
+// Delete user
+
+export const asyncDeleteUser = (id) => async (dispatch, getState) => {
+  try {
+    await axios.delete(`/users/${id}`);
+    dispatch(asyncLogOutUser());
+  } catch (error) {}
 };

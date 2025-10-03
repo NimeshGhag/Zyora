@@ -2,8 +2,9 @@ import React from "react";
 import Login from "./Login";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { asyncLogOutUser } from "../features/users/userAction";
+import { asyncDeleteUser, asyncLogOutUser } from "../features/users/userAction";
 import Nav from "./../Components/Nav";
+import ConfirmModal from "../Components/ConfirmModal";
 
 const Account = () => {
   const user = useSelector((state) => state.user && state.user.user);
@@ -18,6 +19,27 @@ const Account = () => {
     dispatch(asyncLogOutUser());
     navigate("/logIn");
   };
+
+  const [confirmOpen, setConfirmOpen] = React.useState(false);
+
+  const deleteUser = () => {
+    if (!user?.id) {
+      return;
+    }
+    setConfirmOpen(true);
+  };
+
+  const handleConfirmDelete =  () => {
+    setConfirmOpen(false);
+    try {
+       dispatch(asyncDeleteUser(user.id));
+      navigate('/logIn');
+    } catch (e) {
+      console.error('deleteUser failed', e);
+    }
+  };
+
+  const handleCancelDelete = () => setConfirmOpen(false);
 
   return (
     <>
@@ -58,7 +80,7 @@ const Account = () => {
             <div className="w-full py-2 gap-2 flex flex-col">
               <h1 className="opacity-75 text-sm mb-1 border-b-1 border-gray-500 pb-2">Account Settings</h1>
               <Link to={`/update-user/${user?.id}`} className=" text-md  border-b-1 border-gray-500 pb-2">Update Profile</Link>
-              <Link className=" text-md  border-b-1 border-gray-500 pb-2">Delete Account</Link>
+              <button onClick={deleteUser} className=" text-md flex border-b-1 border-gray-500 pb-2 cursor-pointer hover:text-red-700">Delete Account</button>
             </div>
           </div>
 
@@ -87,6 +109,17 @@ const Account = () => {
           <Login />
         </div>
       )}
+
+      {/* Confirm modal for account deletion */}
+      <ConfirmModal
+        open={confirmOpen}
+        title="Delete account"
+        message="Are you sure you want to delete your account? This action cannot be undone."
+        confirmText="Delete"
+        cancelText="Cancel"
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
 
       <Nav />
     </>
