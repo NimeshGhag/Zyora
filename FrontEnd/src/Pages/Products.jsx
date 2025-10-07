@@ -11,11 +11,11 @@ const Products = () => {
     return (
       <div
         key={product.id}
-        className="flex flex-col items-start m-auto w-40 h-64 border rounded-md shadow-sm bg-white"
+        className="flex flex-col items-start m-auto w-40 h-54  rounded-2xl shadow-lg bg-white hover:scale-105 hover:transition duration-300 ease-in-out"
       >
         <Link
           to={`/products/${product.id}`}
-          className="w-full h-40 block overflow-hidden rounded-md mb-3"
+          className="w-full h-40 block overflow-hidden rounded-lg mb-3"
         >
           <img
             className="w-full h-full object-contain p-2"
@@ -31,7 +31,7 @@ const Products = () => {
 
         <Link
           to={`/products/${product.id}`}
-          className="text-sm text-white bg-black w-full text-center p-2 hover:text-amber-300"
+          className="text-sm text-white bg-black w-full rounded-b-2xl text-center p-2 hover:text-amber-300"
         >
           View
         </Link>

@@ -16,7 +16,6 @@ export const asyncLoginrUser = (user) => async (dispatch, getState) => {
     const { data } = await axios.get(
       `/users?email=${user.email}&password=${user.password}`
     );
-    console.log(data);
     if (data && data.length > 0) {
       localStorage.setItem("token", JSON.stringify(data[0]));
       dispatch(loaduser(data[0]));
@@ -64,6 +63,8 @@ export const asyncUpdateUser = (id, user) => async (dispatch, getState) => {
     }
     const { data } = await axios.patch(`/users/${id}`, user);
     // refresh current user (will re-read from localStorage or payload)
+    localStorage.setItem("token", JSON.stringify(data));
+
     dispatch(asyncCurrentUser());
   } catch (error) {
     console.error("asyncUpdateUser error", error);
