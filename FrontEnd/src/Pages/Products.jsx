@@ -41,7 +41,7 @@ const Products = () => {
 
   return products.length > 0 ? (
     <>
-      <div className="m-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center">
+      <div className="m-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center pb-36">
         {renderProduct}
       </div>
       <Nav />
