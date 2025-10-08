@@ -34,7 +34,7 @@ const ProductDetails = () => {
         quantity: copyuser.cart[x].quantity + 1,
       };
     }
-    // navigate("/cart");
+    navigate("/cart");
     dispatch(asyncUpdateUser(copyuser.id, copyuser));
   };
 
