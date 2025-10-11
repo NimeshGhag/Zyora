@@ -15,11 +15,11 @@
       "isAdmin": false,
       "cart": [
         {
-          "productId": "1",
-          "quantity": 2
+          "productId": "DpyT-tI4BYZgJgWaxDreX",
+          "quantity": 1
         },
         {
-          "productId": "DpyT-tI4BYZgJgWaxDreX",
+          "productId": "a6BOPSEeqCXZacr4zyYuN",
           "quantity": 1
         },
         {
@@ -27,19 +27,11 @@
           "quantity": 1
         },
         {
-          "productId": "AI9eCSq24JTZtunoymts3",
+          "productId": "Ic-hJBY3w0UlPV6L7S65I",
           "quantity": 1
         },
         {
           "productId": "-FNe46uWj8egFeagMyWne",
-          "quantity": 1
-        },
-        {
-          "productId": "QyBh_ewCYWfV7hP7lFQ97",
-          "quantity": 1
-        },
-        {
-          "productId": "Ic-hJBY3w0UlPV6L7S65I",
           "quantity": 1
         }
       ]
