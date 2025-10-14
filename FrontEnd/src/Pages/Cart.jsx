@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Nav from "./../Components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncUpdateUser } from "../features/users/userAction";
@@ -51,7 +51,7 @@ const Cart = () => {
   };
 
   // memoized normalized cart items and total price
-  const { cartItems, totalPrice,shipping } = useMemo(() => {
+  const { cartItems, totalPrice, shipping } = useMemo(() => {
     if (!user?.cart?.length || !products?.length)
       return { cartItems: [], totalPrice: 0 };
 
@@ -119,7 +119,7 @@ const Cart = () => {
       <div className="p-5 min-h-screen pb-66 relative mt-8">
         {/* safe cart array (avoid crash if user or user.cart is undefined) */}
 
-        {!user?.cart?.length ? (
+        {!user || !user.cart || !user.cart.length ? (
           <div className="text-center p-6 flex flex-col gap-3 items-center">
             <h1>Your cart is empty. </h1>
             <button
