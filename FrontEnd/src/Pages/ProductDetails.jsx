@@ -65,7 +65,7 @@ const ProductDetails = () => {
       <div key={product?.id} className=" relative flex flex-col gap-5 ">
         <div className="h-[50vh] rounded-bl-[5rem]  shadow-xl  ">
           <img
-            className="w-[90%] h-[90%] object-contain rounded-bl-[5rem]"
+            className="w-[90%] h-[90%] m-auto object-contain rounded-bl-[5rem]"
             src={product?.image}
             alt=""
           />
