@@ -15,26 +15,6 @@
       "isAdmin": false,
       "cart": [
         {
-          "productId": "DpyT-tI4BYZgJgWaxDreX",
-          "quantity": 1
-        },
-        {
-          "productId": "a6BOPSEeqCXZacr4zyYuN",
-          "quantity": 1
-        },
-        {
-          "productId": "bzFAU_kT7WTi0ZxmR7t72",
-          "quantity": 1
-        },
-        {
-          "productId": "Ic-hJBY3w0UlPV6L7S65I",
-          "quantity": 1
-        },
-        {
-          "productId": "-FNe46uWj8egFeagMyWne",
-          "quantity": 1
-        },
-        {
           "quantity": 1
         }
       ]

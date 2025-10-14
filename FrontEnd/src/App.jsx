@@ -3,7 +3,7 @@ import MainRoutes from "./routing/MainRoutes";
 // import Nav from "./Components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncCurrentUser } from "./features/users/userAction";
-import { asyncLoadProduct } from "./features/products/productAction";
+
 
 const App = () => {
   const dispatch = useDispatch();
@@ -14,9 +14,6 @@ const App = () => {
     !user && dispatch(asyncCurrentUser());
   }, [user]);
 
-  useEffect(() => {
-    products.lenghth == 0 && dispatch(asyncLoadProduct());
-  }, [products]);
   return (
     <div className="relative h-screen w-screen bg-white text-black ">
       {/* <Nav /> */}

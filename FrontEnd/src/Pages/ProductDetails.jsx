@@ -14,7 +14,7 @@ const ProductDetails = () => {
 
   // route param `id` is a string; ensure comparison works with numeric ids too
   const product = products?.find((pro) => String(pro.id) === String(id));
-  console.log(product);
+ 
   
 
   const deleteHandler = () => {
