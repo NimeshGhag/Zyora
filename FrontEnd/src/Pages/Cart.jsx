@@ -3,6 +3,7 @@ import Nav from "./../Components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncUpdateUser } from "../features/users/userAction";
 import { useMemo } from "react";
+import { decerseQnty, increseQnty } from "../utils/cartHelper";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -11,30 +12,15 @@ const Cart = () => {
   const user = useSelector((state) => state.user && state.user.user);
   const products = useSelector((state) => state.product?.products ?? []);
 
-  const increseQntHandler = (index, product) => {
-    const copyuser = { ...user, cart: [...user.cart] };
-
-    copyuser.cart[index] = {
-      ...copyuser.cart[index],
-      quantity: copyuser.cart[index].quantity + 1,
-    };
-    console.log(copyuser);
-    dispatch(asyncUpdateUser(user.id, copyuser));
+  const increseQntHandler = (index) => {
+    const newCart = increseQnty(user.cart, index);
+    dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart })); 
   };
 
   const decreseQntHandler = (index) => {
-    const copyuser = { ...user, cart: [...user.cart] };
-
-    if (copyuser.cart[index].quantity == 1) {
-      copyuser.cart.splice(index, 1);
-    } else {
-      copyuser.cart[index] = {
-        ...copyuser.cart[index],
-        quantity: copyuser.cart[index].quantity - 1,
-      };
-    }
-    dispatch(asyncUpdateUser(user.id, copyuser));
-    console.log(copyuser);
+    const newCart = decerseQnty(user.cart, index);
+    dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
+    console.log(newCart);
   };
 
   const deleteproduct = (index) => {
