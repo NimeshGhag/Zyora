@@ -20,3 +20,10 @@ export const decerseQnty = (cart = [], index) => {
   }
   return copy;
 };
+
+export const deleteProductHandler = (cart = [], index) => {
+  const copy = (cart || []).map((c) => ({ ...c }));
+  if (index < 0 || index >= copy.length) return copy;
+  const newCart = copy.filter((_, idx) => idx !== index);
+  return newCart;
+};

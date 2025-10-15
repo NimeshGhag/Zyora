@@ -3,7 +3,7 @@ import Nav from "./../Components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncUpdateUser } from "../features/users/userAction";
 import { useMemo } from "react";
-import { decerseQnty, increseQnty } from "../utils/cartHelper";
+import { decerseQnty, deleteProductHandler, increseQnty } from "../utils/cartHelper";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -14,18 +14,18 @@ const Cart = () => {
 
   const increseQntHandler = (index) => {
     const newCart = increseQnty(user.cart, index);
-    dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart })); 
+    dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
   };
 
   const decreseQntHandler = (index) => {
     const newCart = decerseQnty(user.cart, index);
     dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
-    console.log(newCart);
+    
   };
 
   const deleteproduct = (index) => {
-    const newCart = user.cart.filter((_, idx) => idx !== index);
-    dispatch(asyncUpdateUser(user.id, { cart: newCart }));
+    const newCart = deleteProductHandler(user.cart, index);
+    dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
   };
 
   const resolveProduct = (ci) => {
