@@ -1,3 +1,14 @@
+export const addToCartHelper = (cart, id) => {
+  const copyCart = [...cart];
+  const x = copyCart.findIndex((c) => c.productId == id);
+  if (x == -1) {
+    copyCart.push({ productId: id, quantity: 1 });
+  } else {
+    copyCart[x] = { productId: id, quantity: copyCart[x].quantity + 1 };
+  }
+  return copyCart;
+};
+
 export const increseQnty = (cart = [], index) => {
   const copy = (cart || []).map((c) => ({ ...c }));
   if (index < 0 || index >= copy.length) return copy;

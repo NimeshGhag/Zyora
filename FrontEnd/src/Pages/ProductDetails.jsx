@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Nav from "./../Components/Nav";
 import { asyncDeleteProduct } from "../features/products/productAction";
 import { asyncUpdateUser } from "../features/users/userAction";
+import { addToCartHelper } from "../utils/cartHelper";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -14,8 +15,6 @@ const ProductDetails = () => {
 
   // route param `id` is a string; ensure comparison works with numeric ids too
   const product = products?.find((pro) => String(pro.id) === String(id));
- 
-  
 
   const deleteHandler = () => {
     dispatch(asyncDeleteProduct(id));
@@ -26,18 +25,9 @@ const ProductDetails = () => {
     if (!user) {
       navigate("/logIn");
     }
-    const copyuser = { ...user, cart: [...user.cart] };
-    const x = copyuser.cart.findIndex((c) => c.productId == id);
-    if (x == -1) {
-      copyuser.cart.push({ productId: id, quantity: 1 });
-    } else {
-      copyuser.cart[x] = {
-        productId: id,
-        quantity: copyuser.cart[x].quantity + 1,
-      };
-    }
+    const newCart = addToCartHelper(user.cart, id);
+    dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
     navigate("/cart");
-    dispatch(asyncUpdateUser(copyuser.id, copyuser));
   };
 
   return (
