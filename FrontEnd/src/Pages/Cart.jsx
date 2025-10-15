@@ -3,7 +3,12 @@ import Nav from "./../Components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncUpdateUser } from "../features/users/userAction";
 import { useMemo } from "react";
-import { decerseQnty, deleteProductHandler, increseQnty } from "../utils/cartHelper";
+import {
+  calculateCartDataHelper,
+  decerseQnty,
+  deleteProductHandler,
+  increseQnty,
+} from "../utils/cartHelper";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -20,7 +25,6 @@ const Cart = () => {
   const decreseQntHandler = (index) => {
     const newCart = decerseQnty(user.cart, index);
     dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
-    
   };
 
   const deleteproduct = (index) => {
@@ -28,58 +32,17 @@ const Cart = () => {
     dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
   };
 
-  const resolveProduct = (ci) => {
-    const productFromItem = ci?.product;
-    if (productFromItem && typeof productFromItem === "object")
-      return productFromItem;
-    const idToFind = String(ci?.productId ?? ci?.product ?? "");
-    return products.find((p) => String(p.id) === idToFind) ?? null;
-  };
+  // const resolveProduct = (ci) => {
+  //   const productFromItem = ci?.product;
+  //   if (productFromItem && typeof productFromItem === "object")
+  //     return productFromItem;
+  //   const idToFind = String(ci?.productId ?? ci?.product ?? "");
+  //   return products.find((p) => String(p.id) === idToFind) ?? null;
+  // };
 
   // memoized normalized cart items and total price
   const { cartItems, totalPrice, shipping } = useMemo(() => {
-    if (!user?.cart?.length || !products?.length)
-      return { cartItems: [], totalPrice: 0 };
-
-    const items = (user.cart ?? [])
-      .map((ci, idx) => {
-        const product = resolveProduct(ci);
-        const quantity = Number(ci?.quantity ?? 0);
-        return product ? { product, quantity, cartIndex: idx } : null;
-      })
-      .filter(Boolean);
-
-    const subTotal = items.reduce((sum, it) => {
-      const rawPrice = it.product?.price ?? 0;
-      const priceNum = Number(String(rawPrice).replace(/[^0-9.-]+/g, "")) || 0;
-
-      const qty = Number(it.quantity) || 0;
-      return sum + priceNum * qty;
-    }, 0);
-
-    const shippingTotal = (() => {
-      if (subTotal > 30000) {
-        return 100;
-      }
-
-      return items.reduce((s, it) => {
-        const rawPrice = it.product?.price ?? 0;
-        const priceNum =
-          Number(String(rawPrice).replace(/[^0-9.-]+/g, "")) || 0;
-        const qty = Number(it.quantity) || 0;
-
-        let fee;
-        if (priceNum <= 1000) fee = 50;
-        else if (priceNum <= 50000) fee = 80;
-        else fee = 100;
-
-        // charge shipping per unit (change to just fee if per-line desired)
-        return s + fee * qty;
-      }, 0);
-    })();
-
-    const total = subTotal + shippingTotal;
-    return { cartItems: items, totalPrice: total, shipping: shippingTotal };
+    return calculateCartDataHelper(user, products);
   }, [user?.cart, products]);
 
   return (
