@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <>
       <header className="px-1 py-1 flex flex-col gap-1 bg-black text-white  rounded-b-[1.5rem] fixed top-0 right-0 left-0 tracking-tight">
-        <div className="w-full p-1 flex items-center justify-between">
+        <div className="w-full pr-3  pt-3 flex items-center justify-between">
           <div className="w-30 h-10">
             <img
               className="w-full h-full object-cover"
@@ -47,7 +47,7 @@ const Header = () => {
             />
           </div>
           <button
-            onClick={() => navigate("/cart")}
+            onClick={() => navigate("/wishlist")}
             className="w-[2rem] grid place-items-center h-[2rem] rounded-full cursor-pointer hover:text-emerald-700 hover:transition duration-300 ease-in-out"
           >
             <i className="ri-heart-2-line text-2xl"></i>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Nav from "./../Components/Nav";
 import { asyncDeleteProduct } from "../features/products/productAction";
 import { asyncUpdateUser } from "../features/users/userAction";
-import { addToCartHelper } from "../utils/cartHelper";
+import { addToCartHelper, addToWishList } from "../utils/cartHelper";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -30,6 +30,14 @@ const ProductDetails = () => {
     navigate("/cart");
   };
 
+  const addToWishlist = (id) => {
+    if (!user) {
+      navigate("/logIn");
+    }
+    const newWish = addToWishList(user.wishlist, id);
+    dispatch(asyncUpdateUser(user.id, { ...user, wishlist: newWish }));
+    navigate('/wishlist')
+  };
   return (
     <div className=" flex flex-col gap-2 relative tracking-tight ">
       <div className="flex justify-between items-center p-3">
@@ -53,12 +61,18 @@ const ProductDetails = () => {
       </div>
 
       <div key={product?.id} className=" relative flex flex-col gap-5 ">
-        <div className="h-[50vh] rounded-bl-[5rem]  shadow-xl  ">
+        <div className="h-[50vh] rounded-bl-[5rem]  shadow-xl relative ">
           <img
             className="w-[90%] h-[90%] m-auto object-contain rounded-bl-[5rem]"
             src={product?.image}
             alt=""
           />
+          <button
+            onClick={() => addToWishlist(product?.id)}
+            className="absolute bottom--10 right-10  text-5xl bg-black rounded-full p-3 border cursor-pointer"
+          >
+            <i className="ri-heart-2-fill text-white"></i>
+          </button>
         </div>
 
         <div className=" p-3 flex flex-col gap-3">

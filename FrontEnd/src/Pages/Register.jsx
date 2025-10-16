@@ -19,6 +19,7 @@ const Register = () => {
     user.id = nanoid();
     user.isAdmin = false;
     user.cart = [];
+    user.wishlist =[];
     dispatch(asyncRegisterUser(user));
     reset();
     navigate(-1);

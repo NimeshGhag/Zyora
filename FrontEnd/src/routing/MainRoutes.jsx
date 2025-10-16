@@ -10,6 +10,7 @@ const CreateProduct = lazy(() => import("../Pages/Admin/CreateProduct"));
 const ProductDetails = lazy(() => import("./../Pages/ProductDetails"));
 const UpdateProduct = lazy(() => import("../Pages/Admin/UpdateProduct"));
 const UpdateUser = lazy(() => import("../Pages/Users/UpdateUser"));
+const WishList = lazy(() => import("../Pages/WishList"));
 
 const MainRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const MainRoutes = () => {
       <Route path="/update-product/:id" element={<UpdateProduct />} />
       <Route path="/register" element={<Register />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/wishlist" element={<WishList />} />
       <Route path="/account" element={<Account />} />
       <Route path="/update-user/:id" element={<UpdateUser />} />
       <Route path="/create-product" element={<CreateProduct />} />

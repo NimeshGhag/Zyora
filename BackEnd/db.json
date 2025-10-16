@@ -13,7 +13,8 @@
       "email": "test@test.com",
       "password": "12345",
       "isAdmin": false,
-      "cart": []
+      "cart": [],
+      "wishlist": []
     },
     {
       "id": "dfi_WG0e2ZJwj37lw8E20",
@@ -21,7 +22,8 @@
       "email": "nimesh@test.com",
       "password": "1234",
       "isAdmin": false,
-      "cart": []
+      "cart": [],
+      "wishlist": []
     }
   ],
   "products": [

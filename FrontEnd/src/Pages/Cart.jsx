@@ -32,13 +32,6 @@ const Cart = () => {
     dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
   };
 
-  // const resolveProduct = (ci) => {
-  //   const productFromItem = ci?.product;
-  //   if (productFromItem && typeof productFromItem === "object")
-  //     return productFromItem;
-  //   const idToFind = String(ci?.productId ?? ci?.product ?? "");
-  //   return products.find((p) => String(p.id) === idToFind) ?? null;
-  // };
 
   // memoized normalized cart items and total price
   const { cartItems, totalPrice, shipping } = useMemo(() => {
@@ -47,7 +40,7 @@ const Cart = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center px-1 py-2 mb-5 fixed top-0 right-0 left-0 z-60 bg-white/30 backdrop-blur-xs ">
+      <div className="flex justify-between items-center px-3 py-3 mb-5 fixed top-0 right-0 left-0 z-60 bg-white/30 backdrop-blur-xs ">
         <button
           onClick={() => navigate(-1)}
           className="cursor-pointer  hover:text-emerald-700 hover:transition duration-300 ease-in-out"
@@ -58,7 +51,7 @@ const Cart = () => {
         <h1 className="text-xl cursor-pointer">Cart</h1>
 
         <button
-          onClick={() => navigate("/cart")}
+          onClick={() => navigate("/wishlist")}
           className="w-[2rem] grid place-items-center h-[2rem] rounded-full cursor-pointer hover:text-red-700 hover:transition duration-300 ease-in-out"
         >
           <i className="ri-heart-2-line text-2xl"></i>
