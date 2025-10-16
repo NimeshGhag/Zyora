@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../features/users/userSlice";
 import productReducer from "../features/products/productslice";
+import searchReducer from "../features/search/searchSlice"
 
 // Try to read the saved user from localStorage synchronously so
 // the app starts with the stored user (avoids a brief null state).
@@ -19,6 +20,7 @@ export const store = configureStore({
   reducer: {
     user: userReducer,
     product : productReducer,
+    search: searchReducer,
   },
   preloadedState: {
     user: getPreloadedUser(),
