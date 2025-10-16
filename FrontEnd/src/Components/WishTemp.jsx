@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { deleteWishHandler } from "../utils/cartHelper";
+import { deleteWishHandler } from "../utils/wishListHelper";
 import { asyncUpdateUser } from "../features/users/userAction";
 import { useDispatch, useSelector } from "react-redux";
 

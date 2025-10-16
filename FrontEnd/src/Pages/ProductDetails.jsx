@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Nav from "./../Components/Nav";
 import { asyncDeleteProduct } from "../features/products/productAction";
 import { asyncUpdateUser } from "../features/users/userAction";
-import { addToCartHelper, addToWishList } from "../utils/cartHelper";
+import { addToCartHelper } from "../utils/cartHelper";
+import { addToWishList } from "../utils/wishListHelper";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -33,11 +34,12 @@ const ProductDetails = () => {
   const addToWishlist = (id) => {
     if (!user) {
       navigate("/logIn");
+      return;
     }
     const newWish = addToWishList(user.wishlist, id);
     dispatch(asyncUpdateUser(user.id, { ...user, wishlist: newWish }));
-    navigate('/wishlist')
   };
+  
   return (
     <div className=" flex flex-col gap-2 relative tracking-tight ">
       <div className="flex justify-between items-center p-3">
@@ -69,9 +71,20 @@ const ProductDetails = () => {
           />
           <button
             onClick={() => addToWishlist(product?.id)}
-            className="absolute bottom--10 right-10  text-5xl bg-black rounded-full p-3 border cursor-pointer"
+            className="absolute bottom--10 right-10 text-5xl bg-black rounded-full p-3 border cursor-pointer"
           >
-            <i className="ri-heart-2-fill text-white"></i>
+            <i
+              className={
+                "ri-heart-2-fill " +
+                (user &&
+                Array.isArray(user.wishlist) &&
+                user.wishlist.findIndex(
+                  (w) => String(w.productId) === String(product?.id)
+                ) !== -1
+                  ? "text-red-400"
+                  : "text-white")
+              }
+            ></i>
           </button>
         </div>
 
