@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
+
+const PageNotFound = lazy(() => import("../Pages/PageNotFound"));
 const Home = lazy(() => import("../Pages/Home"));
 const Login = lazy(() => import("./../Pages/Login"));
 const Products = lazy(() => import("./../Pages/Products"));
@@ -26,6 +28,7 @@ const MainRoutes = () => {
       <Route path="/account" element={<Account />} />
       <Route path="/update-user/:id" element={<UpdateUser />} />
       <Route path="/create-product" element={<CreateProduct />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

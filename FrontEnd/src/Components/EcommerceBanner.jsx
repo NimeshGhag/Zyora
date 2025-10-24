@@ -59,8 +59,8 @@ const EcommerceBanner = () => {
             <div className="absolute -bottom-6 left-6 flex gap-4">
               <div className="rounded-xl bg-white/90 p-3 shadow">
                 <div className="text-xs font-medium">Best seller</div>
-                <div className="text-sm font-semibold">Wireless Speaker</div>
-                <div className="text-xs text-slate-500">From ₹2,299</div>
+                <div className="text-sm font-semibold">Perfume</div>
+                <div className="text-xs text-slate-500">From ₹5,299</div>
               </div>
               <div className="rounded-xl bg-white/90 p-3 shadow hidden lg:block">
                 <img
