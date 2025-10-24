@@ -13,7 +13,12 @@
       "email": "test@test.com",
       "password": "12345",
       "isAdmin": false,
-      "cart": [],
+      "cart": [
+        {
+          "productId": "1",
+          "quantity": 2
+        }
+      ],
       "wishlist": []
     },
     {

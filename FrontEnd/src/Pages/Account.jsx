@@ -62,7 +62,9 @@ const Account = () => {
               <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
                 <i className="ri-box-3-line text-emerald-700"></i> Orders
               </button>
-              <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
+              <button
+              onClick={()=>navigate('/wishlist')}
+              className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
                 <i className="ri-heart-2-line text-emerald-700"></i> Wishlist
               </button>
             </div>

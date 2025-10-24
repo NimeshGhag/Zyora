@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="px-1 py-1 flex flex-col gap-1 bg-black text-white  rounded-b-[1.5rem] fixed top-0 right-0 left-0 tracking-tight">
+      <header className="px-1 py-1 flex flex-col gap-1 bg-black text-white  rounded-b-[1.5rem] fixed top-0 right-0 left-0 tracking-tight z-10">
         <div className="w-full pr-3  pt-3 flex items-center justify-between">
           <div className="w-30 h-10">
             <img
