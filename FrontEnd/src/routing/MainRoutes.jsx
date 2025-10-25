@@ -1,5 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
+import Auth from "./Auth";
+import UnAuth from "./UnAuth";
+import AdminAuth from "./AdminAuth";
 
 const PageNotFound = lazy(() => import("../Pages/PageNotFound"));
 const Home = lazy(() => import("../Pages/Home"));
@@ -18,16 +21,76 @@ const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/logIn" element={<Login />} />
       <Route path="/products" element={<Products />} />
       <Route path="/products/:id" element={<ProductDetails />} />
-      <Route path="/update-product/:id" element={<UpdateProduct />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/wishlist" element={<WishList />} />
-      <Route path="/account" element={<Account />} />
-      <Route path="/update-user/:id" element={<UpdateUser />} />
-      <Route path="/create-product" element={<CreateProduct />} />
+
+      <Route
+        path="/logIn"
+        element={
+          <UnAuth>
+            <Login />
+          </UnAuth>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <UnAuth>
+            <Register />
+          </UnAuth>
+        }
+      />
+
+      <Route
+        path="/cart"
+        element={
+          <Auth>
+            <Cart />
+          </Auth>
+        }
+      />
+      <Route
+        path="/wishlist"
+        element={
+          <Auth>
+            <WishList />
+          </Auth>
+        }
+      />
+      <Route
+        path="/account"
+        element={
+          <Auth>
+            <Account />
+          </Auth>
+        }
+      />
+      <Route
+        path="/update-user/:id"
+        element={
+          <Auth>
+            <UpdateUser />
+          </Auth>
+        }
+      />
+
+      <Route
+        path="/update-product/:id"
+        element={
+          <AdminAuth>
+            <UpdateProduct />
+          </AdminAuth>
+        }
+      />
+      <Route
+        path="/create-product"
+        element={
+          <AdminAuth>
+            <CreateProduct />
+          </AdminAuth>
+        }
+      />
+      
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
