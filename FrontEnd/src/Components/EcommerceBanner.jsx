@@ -6,7 +6,7 @@ const EcommerceBanner = () => {
 
   // Default variant
   return (
-    <section className="relative overflow-hidden mt-35 rounded-2xl bg-gradient-to-r from-amber-200 to-amber-400 p-6 md:p-12 text-black tracking-tight">
+    <section className="relative overflow-hidden mt-35 lg:mt-40 rounded-2xl bg-gradient-to-r from-amber-200 to-amber-400 p-6 md:p-12 text-black tracking-tight">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left */}
         <div>

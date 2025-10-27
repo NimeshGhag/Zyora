@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-const AdminAuth = () => {
+const AdminAuth = (props) => {
   const user = useSelector((state) => state.user && state.user.user);
 
   if (!user) return <Navigate to={"/logIn"} />;

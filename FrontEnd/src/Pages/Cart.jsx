@@ -32,7 +32,6 @@ const Cart = () => {
     dispatch(asyncUpdateUser(user.id, { ...user, cart: newCart }));
   };
 
-
   // memoized normalized cart items and total price
   const { cartItems, totalPrice, shipping } = useMemo(() => {
     return calculateCartDataHelper(user, products);
@@ -40,25 +39,25 @@ const Cart = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center px-3 py-3 mb-5 fixed top-0 right-0 left-0 z-60 bg-white/30 backdrop-blur-xs ">
+      <div className="flex justify-between items-center px-3 lg:px-4 py-3 lg:py-4 mb-5 fixed top-0 right-0 left-0 z-60 bg-white/30 backdrop-blur-xs ">
         <button
           onClick={() => navigate(-1)}
           className="cursor-pointer  hover:text-emerald-700 hover:transition duration-300 ease-in-out"
         >
-          <i className="ri-arrow-left-line text-2xl"></i>
+          <i className="ri-arrow-left-line text-2xl lg:text-3xl"></i>
         </button>
 
-        <h1 className="text-xl cursor-pointer">Cart</h1>
+        <h1 className="text-xl  lg:text-2xl cursor-pointer">Cart</h1>
 
         <button
           onClick={() => navigate("/wishlist")}
           className="w-[2rem] grid place-items-center h-[2rem] rounded-full cursor-pointer hover:text-red-700 hover:transition duration-300 ease-in-out"
         >
-          <i className="ri-heart-2-line text-2xl"></i>
+          <i className="ri-heart-2-line text-2xl lg:text-3xl"></i>
         </button>
       </div>
 
-      <div className="p-5 min-h-screen pb-66 relative mt-8">
+      <div className="p-5 min-h-screen pb-66 relative mt-8 md:mt-11 lg:mt-13 lg:mb-10 2xl:mb-80">
         {/* safe cart array (avoid crash if user or user.cart is undefined) */}
 
         {!user || !user.cart || !user.cart.length ? (
@@ -78,20 +77,22 @@ const Cart = () => {
             return (
               <div
                 key={product.id}
-                className="mb-3 bg-gray-200 p-2 flex justify-around items-center rounded-2xl relative"
+                className="mb-3 bg-gray-200 p-2 flex justify-between items-center rounded-2xl relative"
               >
-                <img
-                  className="h-[10vmax] w-[10vmax] rounded-2xl object-cover"
-                  src={product.image ?? ""}
-                  alt={product.title ?? ""}
-                />
+                <div className="flex w-full">
+                  <img
+                    className="h-[10vmax] w-[10vmax] rounded-2xl object-cover"
+                    src={product.image ?? ""}
+                    alt={product.title ?? ""}
+                  />
 
-                <div className="flex flex-col p-3 w-3xs ">
-                  <h1>{product.title}</h1>
-                  <h2>₹ {product.price}</h2>
+                  <div className="flex flex-col p-3 lg:p-2 lg:gap-2 ">
+                    <h1 className="lg:text-xl">{product.title}</h1>
+                    <h2 className="lg:text-xl">₹ {product.price}</h2>
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-around p-2 w-[10rem]">
+                <div className="flex items-center justify-around p-2">
                   <button
                     onClick={() => decreseQntHandler(cartIndex)}
                     className="text-3xl cursor-pointer"
@@ -124,23 +125,32 @@ const Cart = () => {
 
         {cartItems.length > 0 && (
           <div className="fixed bottom-0 left-0 right-0 z-10">
-            <div className="bg-amber-300  w-full h-70 rounded-t-[4rem]">
-              <div className=" bg-amber-100 p-3 m-3 absolute top-10 left-0 right-0 flex  flex-col items-start rounded-2xl">
-                <div className=" flex justify-between items-center w-full ">
-                  <h2 className="text-lg">Selected Items</h2>
-                  <p className="text-sm opacity-80">
+            <div className="bg-amber-300  w-full h-70 md:h-72 lg:h-78 rounded-t-[4rem]">
+              <div
+                className=" bg-amber-100  p-3 m-3 absolute top-10 left-0 right-0 flex lg:gap-1 flex-col items-start 
+              rounded-2xl  "
+              >
+                <div className=" flex justify-between items-center w-full  ">
+                  <h2 className="text-lg md:text-xl lg:text-2xl">
+                    Selected Items
+                  </h2>
+                  <p className="text-sm md:text-xl  opacity-80">
                     {cartItems.length} item(s)
                   </p>
                 </div>
                 <div className="flex justify-between items-center w-full">
-                  <h2 className="text-lg">Shipping Fee</h2>
+                  <h2 className="text-md md:text-lg lg:text-xl">
+                    Shipping Fee
+                  </h2>
                   <p>₹{shipping}</p>
                 </div>
                 <div className="h-[1px] w-full bg-black my-3"></div>
                 <div className="flex justify-between items-center w-full">
-                  <h1 className="text-xl">Total</h1>
+                  <h1 className="text-xl md:text-2xl">Total</h1>
 
-                  <p className="text-2xl">₹ {totalPrice.toFixed(2)}</p>
+                  <p className="text-xl md:text-2xl">
+                    ₹ {totalPrice.toFixed(2)}
+                  </p>
                 </div>
               </div>
             </div>

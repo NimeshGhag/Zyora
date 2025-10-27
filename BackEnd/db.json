@@ -98,6 +98,38 @@
       "price": "1,59,000",
       "category": "Computers",
       "description": "The world's best all-in-one desktop. Supercharged by M4 chip. Built for Apple Intelligence. With a 60.96 cm (24″) 4.5K display. Advanced camera and audio."
+    },
+    {
+      "id": "oLXB1MBX2VcdwLrjW7r1M",
+      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-max-select-202409-starlight_FV1_FMT_WHH?wid=752&hei=636&fmt=jpeg&qlt=90&.v=azQxRkVJKzd6V3J0aGNqWFhLMzBmdWd1NjlYUXFPTDZEK2xySGJScW1PSytTaXp0Y05FRjRISnRwR3l5VGs0Q3hlNzZ3SWpkT0t3aXZ0SHJqc3NzQnRlVUN5anBMYXArdTZxQXVZNFlaRkZBb011azFqSVlObURDVzdCOUVoMkhmbW94YnYxc1YvNXZ4emJGL0IxNFp3",
+      "title": "AirPods Max ",
+      "price": "59900",
+      "category": "Headphones & Speakers - All Accessories",
+      "description": "The ultimate over-ear personal listening experience in a variety of fresh colours. AirPods Max deliver stunningly detailed, high-fidelity audio. Personalised Spatial Audio with dynamic head tracking for sound that surrounds you. Footnote ⁷ Pro-level Active Noise Cancellation to remove unwanted noise."
+    },
+    {
+      "id": "HTzqfszfDVm7FREVEiObz",
+      "image": "https://media.landmarkshops.in/cdn-cgi/image/h=1125,w=1125,q=85,fit=cover/lifestyle/1000013294658-1000013294657_03-2100.jpg",
+      "title": "DOLCE&GABBANA ",
+      "price": "7500",
+      "category": "Fragrance",
+      "description": "This fragrance begins with bold cardamom and neroli, transitioning to a heart of clary sage and cashmeran, and settling into a rich leather base. Perfect for evenings or special occasions, it expertly balances power and elegance."
+    },
+    {
+      "id": "ryIgSH4wDCgQY6iEiWbkv",
+      "image": "https://media.landmarkshops.in/cdn-cgi/image/h=1125,w=1125,q=85,fit=cover/lifestyle/1000016252511-1000016252510_03-2100.jpg",
+      "title": "HUGO BOSS",
+      "price": "10500",
+      "category": "Fragrance",
+      "description": "Unleash fresh confidence with the Hugo Boss Bottled Bold Citrus perfume. Opening with the zesty brightness of Lemon Primofiore, the fragrance evolves into the aromatic warmth of elemi extract, and finishes with the earthy depth of patchouli essence. Energising yet refined, this scent is crafted for the man who makes every moment his own.\n\n"
+    },
+    {
+      "id": "4sB2uCCcpWBVvPuT_2a26",
+      "image": "data:image/jpeg;base64,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",
+      "title": "iPad Air",
+      "price": "89900",
+      "category": "Electronics",
+      "description": "Built into your iPad, Apple Intelligence is the personal intelligence system that helps you write, express yourself and get things done effortlessly. With groundbreaking privacy protections, it gives you peace of mind that no one else can access your data — not even Apple."
     }
   ],
   "cart": []

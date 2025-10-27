@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <div className="w-screen h-screen flex flex-col items-center">
-      <div className="w-40 h-30">
+      <div className="w-40 h-30 md:w-50 md:h-40 lg:w-60 lg:h-50">
         <img
           className="w-full object-contain"
           src="../../assets/WhatsApp_Image_2025-09-23_at_1.25.18_PM-removebg-preview.webp"
@@ -35,23 +35,23 @@ const Login = () => {
         />
       </div>
       <div className="flex flex-col items-center justify-center p-5 tracking-tight">
-        <h1 className="text-3xl text-neutral-900 font-semibold mb-4">
+        <h1 className="text-3xl md:text-4xl text-neutral-900 font-semibold mb-4">
           Welcome Back
         </h1>
 
         <form
           onSubmit={handleSubmit(loginHandler)}
-          className="w-full flex flex-col items-center text-2xl gap-4  p-5 cursor-pointer tracking-tigh shadow-xl rounded-2xl backdrop-blur-xst"
+          className="w-full flex flex-col items-center text-2xl md:text-3xl gap-4  p-5 cursor-pointer tracking-tigh shadow-xl rounded-2xl backdrop-blur-xst"
         >
           <div className="flex flex-col gap-1">
             <input
               {...register("email", { required: "please enter a email" })}
-              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg placeholder:text-sm"
+              className="border-1 border-neutral-400 outline-0 p-3  rounded-lg placeholder:text-sm md:placeholder:text-lg "
               type="email"
               placeholder="Email"
             />
 
-            <small className="text-red-500 text-xs font-thin">
+            <small className="text-red-500 text-xs md:text-base font-thin">
               {errors?.email?.message}
             </small>
           </div>
@@ -59,16 +59,16 @@ const Login = () => {
           <div className="flex flex-col gap-1">
             <input
               {...register("password", { required: "invalid password" })}
-              className="border-1  border-neutral-400 outline-0 p-3 rounded-lg placeholder:text-sm"
+              className="border-1  border-neutral-400 outline-0 p-3 rounded-lg placeholder:text-sm  md:placeholder:text-lg"
               type="password"
               placeholder="Password"
             />
-            <small className="text-red-500 text-xs font-thin">
+            <small className="text-red-500 text-xs  md:text-base font-thin">
               {errors?.password?.message}
             </small>
           </div>
 
-          <button className="bg-black text-white cursor-pointer w-full p-2 rounded-4xl text-lg hover:text-amber-300">
+          <button className="bg-black text-white cursor-pointer w-full p-2 rounded-4xl text-lg md:text-xl hover:text-amber-300">
             Sign In
           </button>
         </form>

@@ -5,7 +5,7 @@ const LoadingProduct = ({ count = 6 }) => {
   return Array.from({ length: n }).map((_, i) => (
     <div
       key={`ph-${i}`}
-      className="flex flex-col items-start m-auto w-40 h-54 rounded-2xl shadow-lg bg-white"
+      className="flex flex-col items-start m-auto w-40 h-54 rounded-2xl shadow-lg bg-white md:w-55 md:h-69  lg:w-60 lg:h-74"
     >
       <div className="w-full h-40 block overflow-hidden rounded-lg mb-3 bg-gray-200 animate-pulse" />
 

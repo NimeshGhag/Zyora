@@ -15,7 +15,7 @@ const Home = () => {
 
   const q = normalizeQuery(query);
   const filteredProducts = filterProducts(products, q);
-  const itemShow = 5;
+  const itemShow = 8;
 
   // ✅ Fixed slice bug
   const visibleProducts = (q ? filteredProducts : products || []).slice(
@@ -30,10 +30,10 @@ const Home = () => {
       {/* ✅ Search mode */}
       {q ? (
         <>
-          <div className="m-3 flex gap-2 w-fit pb-10  bg-gray-100 py-5 rounded-2xl">
+          <div className="m-3 flex gap-2 w-fit pb-10  bg-gray-100 py-5 rounded-2xl ">
             {filteredProducts.length === 0 ? (
-              <div className="m-3 flex gap-2 w-fit">
-                <LoadingProduct count={5} />
+              <div className="m-3 flex gap-2 md:gap-3 w-max overflow-x-auto no-scrollbar select-none cursor-grab active:cursor-grabbing lg:mb-30 ">
+                <LoadingProduct count={8} />
               </div>
             ) : (
               filteredProducts.map((product) => (
@@ -43,23 +43,23 @@ const Home = () => {
               ))
             )}
           </div>
-          <Nav />
+          <Nav className="lg:hidden" />
         </>
       ) : (
         /* ✅ Infinite scroll mode */
         <InfiniteScroll
-          className=" bg-gray-100 py-5 rounded-2xl"
+          className=" bg-gray-100 py-5 rounded-2x "
           dataLength={visibleProducts.length}
           next={FetchProducts}
           loader={
-            <div className="m-3 flex gap-2 w-fit">
-              <LoadingProduct count={5} />
+            <div className="m-3 flex gap-2 w-fit md:gap-3 ">
+              <LoadingProduct count={8} />
             </div>
           }
         >
-          <div className="m-3 flex gap-2 w-fit">
+          <div className="m-3 flex gap-2  md:gap-3 w-max overflow-x-auto no-scrollbar select-none cursor-grab active:cursor-grabbing lg:mb-30 ">
             {visibleProducts.length === 0 ? (
-              <LoadingProduct count={5} />
+              <LoadingProduct count={8} />
             ) : (
               visibleProducts.map((product) => (
                 <Suspense key={product.id} fallback={<LoadingProduct />}>
@@ -68,7 +68,7 @@ const Home = () => {
               ))
             )}
           </div>
-          <Nav />
+          <Nav  className="lg:hidden"  />
         </InfiniteScroll>
       )}
 

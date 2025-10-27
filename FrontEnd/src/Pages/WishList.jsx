@@ -16,25 +16,25 @@ const WishList = () => {
  
   return (
     <>
-      <div className="flex justify-between items-center px-3 py-3 mb-5 fixed top-0 right-0 left-0 z-60 bg-white/30 backdrop-blur-xs ">
+      <div className="flex justify-between items-center px-3 lg:px-4 py-3 lg:py-4 mb-5 fixed top-0 right-0 left-0 z-60 bg-white/30 backdrop-blur-xs ">
         <button
           onClick={() => navigate(-1)}
           className="cursor-pointer  hover:text-emerald-700 hover:transition duration-300 ease-in-out"
         >
-          <i className="ri-arrow-left-line text-2xl"></i>
+          <i className="ri-arrow-left-line text-2xl lg:text-3xl"></i>
         </button>
 
-        <h1 className="text-xl cursor-pointer">WishList</h1>
+        <h1 className="text-xl lg:text-2xl cursor-pointer">WishList</h1>
 
         <button
           onClick={() => navigate("/cart")}
           className="w-[2rem] grid place-items-center h-[2rem] rounded-full cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out"
         >
-          <i className="ri-shopping-cart-line text-2xl"></i>
+          <i className="ri-shopping-cart-line text-2xl lg:text-3xl"></i>
         </button>
       </div>
 
-      <div className="p-5 min-h-screen pb-66 relative mt-8">
+      <div className="p-5 min-h-screen pb-66 relative mt-8 md:mt-11 lg:mt-13">
         {/* safe cart array (avoid crash if user or user.cart is undefined) */}
 
         {!user || !user.wishlist || !user.wishlist.length ? (

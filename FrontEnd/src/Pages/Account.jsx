@@ -29,13 +29,13 @@ const Account = () => {
     setConfirmOpen(true);
   };
 
-  const handleConfirmDelete =  () => {
+  const handleConfirmDelete = () => {
     setConfirmOpen(false);
     try {
-       dispatch(asyncDeleteUser(user.id));
-      navigate('/logIn');
+      dispatch(asyncDeleteUser(user.id));
+      navigate("/logIn");
     } catch (e) {
-      console.error('deleteUser failed', e);
+      console.error("deleteUser failed", e);
     }
   };
 
@@ -47,42 +47,59 @@ const Account = () => {
         <>
           <div className="flex items-center gap-5 px-5 py-5 bg-amber-200 m-2 rounded-xl ">
             <img
-              className="w-10 h-10"
+              className="w-10 h-10 md:w-15 md:h-15 lg:w-20 lg:h-20 object-cover rounded-full"
               src="https://cdni.iconscout.com/illustration/premium/thumb/female-user-image-illustration-download-in-svg-png-gif-file-formats--person-girl-business-pack-illustrations-6515859.png?f=webp"
               alt=""
             />
             <div>
-              <h1 className="text-xl">{user.userName}</h1>
-              <h3 className="text-sm text-gray-500">{user.email}</h3>
+              <h1 className="text-xl md:text-2xl lg:text-3xl">
+                {user.userName}
+              </h1>
+              <h3 className="text-sm lg:text-base text-gray-500">
+                {user.email}
+              </h3>
             </div>
           </div>
 
-          <div className="flex flex-col  items-center px-5 mx-2 bg-gray-100  rounded-xl tracking-tight ">
+          <div className="flex flex-col  items-center px-5 mx-2 bg-gray-100 rounded-xl tracking-tight ">
             <div className="w-full py-2 flex gap-1 justify-around ">
-              <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
+              <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out md:text-lg lg:text-xl">
                 <i className="ri-box-3-line text-emerald-700"></i> Orders
               </button>
               <button
-              onClick={()=>navigate('/wishlist')}
-              className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
+                onClick={() => navigate("/wishlist")}
+                className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out md:text-lg lg:text-xl"
+              >
                 <i className="ri-heart-2-line text-emerald-700"></i> Wishlist
               </button>
             </div>
 
-            <div className="w-full py-2 flex gap-2 justify-around ">
-              <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
+            <div className="w-full py-2 flex gap-1 justify-around mb-2 ">
+              <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out md:text-lg lg:text-xl">
                 <i className="ri-gift-line text-emerald-700"></i> Coupons
               </button>
-              <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out">
+              <button className="border-gray-300 border-1 px-6 py-2 rounded-lg w-[50%] cursor-pointer hover:bg-black hover:text-white hover:transition duration-300 ease-in-out md:text-lg lg:text-xl">
                 <i className="ri-customer-service-2-fill text-emerald-700"></i>{" "}
                 Help
               </button>
             </div>
 
             <div className="w-full py-2 gap-2 flex flex-col">
-              <h1 className="opacity-75 text-sm mb-1 border-b-1 border-gray-500 pb-2">Account Settings</h1>
-              <Link to={`/update-user/${user?.id}`} className=" text-md  border-b-1 border-gray-500 pb-2">Update Profile</Link>
-              <button onClick={deleteUser} className=" text-md flex border-b-1 border-gray-500 pb-2 cursor-pointer hover:text-red-700">Delete Account</button>
+              <h1 className="opacity-75 text-sm lg:text-base mb-1 border-b-1 border-gray-500 pb-2 ">
+                Account Settings
+              </h1>
+              <Link
+                to={`/update-user/${user?.id}`}
+                className=" text-md lg:text-lg  border-b-1 border-gray-500 pb-2"
+              >
+                Update Profile
+              </Link>
+              <button
+                onClick={deleteUser}
+                className=" text-md lg:text-lg flex border-b-1 border-gray-500 pb-2 cursor-pointer hover:text-red-700"
+              >
+                Delete Account
+              </button>
             </div>
           </div>
 
@@ -91,7 +108,7 @@ const Account = () => {
               <>
                 <button
                   onClick={productHandler}
-                  className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer  hover:text-amber-300 hover:transition duration-300 ease-in-out"
+                  className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer  hover:text-amber-300 hover:transition duration-300 ease-in-out md:text-lg lg:text-xl"
                 >
                   Create Product
                 </button>
@@ -100,7 +117,7 @@ const Account = () => {
 
             <button
               onClick={logOutHandler}
-              className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out"
+              className=" bg-black text-white px-6 py-2 rounded-lg w-full cursor-pointer hover:text-amber-300 hover:transition duration-300 ease-in-out md:text-lg lg:text-xl"
             >
               <i className="ri-logout-box-r-line"></i> Sign out
             </button>

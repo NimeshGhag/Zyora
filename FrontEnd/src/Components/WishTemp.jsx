@@ -22,22 +22,22 @@ const WishTemp = ({ product }) => {
   return (
     <div
       key={product.id}
-      className="flex items-center justify-around  h-30 rounded-2xl shadow-lg bg-white hover:scale-105 hover:transition duration-300 ease-in-out"
+      className="flex items-center justify-around p-2 rounded-2xl shadow-lg bg-white hover:scale-105 hover:transition duration-300 ease-in-out"
     >
       <Link
         to={`/products/${product.id}`}
-        className=" h-full block overflow-hidden rounded-lg mb-3"
+        className=" block overflow-hidden rounded-lg mb-3"
       >
         <img
-          className="w-full h-full object-contain p-2"
+          className="h-[10vmax] w-[10vmax] rounded-2xl object-cover"
           src={product.image}
           alt={product.title}
         />
       </Link>
 
-      <div className="w-full px-2 mb-2">
-        <h3 className="text-sm font-medium line-clamp-2">{product.title}</h3>
-        <span className="text-lg font-semibold">₹ {product.price}</span>
+      <div className="w-full px-2 lg:px-4 mb-2">
+        <h3 className="text-sm lg:text-base font-medium line-clamp-2">{product.title}</h3>
+        <span className="text-lg lg:text-xl font-semibold">₹ {product.price}</span>
       </div>
 
       <button
