@@ -20,6 +20,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.1",
+    "remixicon": "^4.7.0",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
